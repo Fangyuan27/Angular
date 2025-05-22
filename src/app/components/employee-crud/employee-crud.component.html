@@ -1,0 +1,56 @@
+<div class="border p-2 m-2">
+    <h2 style="text-align: center;">Employee List </h2>
+    <button class="btn btn btn-primary m-2" (click) = "addEmployee()"><fa-icon [icon]="faPlus"></fa-icon>Add</button>
+   <table class = "table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="px-3">Id</th>
+            <th class="px-3">Employee Name</th>
+            <th class="px-3">Employee Department</th>
+            <th class="px-3">Employee Salary</th>
+            <th class="px-3">Edit</th>
+            <th class="px-3">Delete</th>
+            <th class="px-3">View</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees.slice(); track emp.id){
+        <tr>
+            <td class="px-3">{{emp.id}}</td>
+            <td class="px-3">{{emp.name}}</td>
+            <td class="px-3">{{emp.department}}</td>
+            <td class="px-3">{{emp.salary}}</td>
+            <td class="px-3"> <button class="btn btn btn-warning mx-2" (click) = "editEmployee(emp)"> 
+              <fa-icon [icon]="faPen"></fa-icon>Edit</button></td>
+             <td class="px-3"> <button class="btn btn btn-success mx-2" (click) = "deleteEmployee()"><fa-icon [icon]="faTrash"></fa-icon>Delete</button></td>
+            <td class="px-3"> <button class="btn btn btn-secondary" (click) = "viewEmployee(emp)"data-bs-toggle="modal" 
+              data-bs-target="#exampleModal"><fa-icon [icon]="faEye"></fa-icon>View</button></td>
+        </tr>
+    }
+    </tbody>
+   </table> 
+  
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Employee Id is : {{selectedEmployee?.id}}</p>
+        <p>Employee Name is : {{selectedEmployee?.name}}</p>
+        <p>Employee Department is : {{selectedEmployee?.department}}</p>
+        <p>Employee Salary is : {{selectedEmployee?.salary}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

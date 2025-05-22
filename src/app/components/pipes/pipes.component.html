@@ -1,0 +1,129 @@
+<div class="border p-2 m-2">
+    <h2 style="text-align: center;">Lets Learn Pipes</h2>
+    <div>Username : {{userName}}</div>
+    <br>
+    <div>Username : {{userName | lowercase}} </div>
+    <br>
+    <div>Username : {{userName | uppercase}} </div>
+    <br>
+    <div>Username : {{userName | titlecase}} </div>
+</div>
+
+<div class=" border p-2 m-2">
+    <h2 style="text-align: center;">Currency Pipes</h2>
+    <div>salary : {{5000 | currency}}  </div>
+    <div>salary : {{5000 | currency : 'INR'}}  </div>
+    <div>salary : {{5000 | currency : '&euro;'}}  </div>
+</div>
+
+<div class="border p-2 m-2">
+  <h2 >Ordinal Pipe</h2>
+   <ul>
+    @for (num of numbers; track $index) {
+      <li>{{ num | ordinal}}</li>
+    }
+     </ul>
+    
+</div>
+
+<div class="border p-2 m-2">
+  <h2 >Roman Pipe</h2>
+   <ul>
+    @for (num of numbers2; track $index) {
+      <li>{{ num | roman}}</li>
+    }
+     </ul> 
+</div>
+
+  <!-- <!-- <div class="border p-3 m-2">
+     <div class="mb-3">
+        <h2 style="text-align: center;">Ordinal Pipe</h2>
+    <input [(ngModel)]="inputNumber" type="number" class="form-control" placeholder="Enter number" />
+    <button class="btn btn-primary mx-2" (click)="addNumber()">Add</button>
+    <button class="btn btn btn-secondary" (click)="convertToOrdinal()">Convert</button>
+  </div>
+    
+    <div class="mb-3">
+    <h4>Converted Ordinals:</h4>
+    <ul>
+      @for (num of ordinalArr; track $index) {
+        <li>{{ num | ordinal }}</li>
+      }
+    </ul>
+  </div>
+  </div> -->
+
+  <!-- <div class="border p-3 m-3">
+    <div class="mb-3">
+      <h2 style="text-align: center;">RomanNumbers</h2>
+      <input [(ngModel)] = romanInputNumber type="number" class="form-control" placeholder="Enter number"/>
+      <button class="btn btn-primary mx-2" (click)="addRomanNumber()">Add</button>
+      <button class="btn btn-primary mx-2" (click)="convertToRoman()">Convert</button>
+    </div>
+    <div class="mb-3">
+      <h2>Convert To Roman</h2>
+      <ul>
+        @for (num of romanArr; track $index) {
+          <li>{{num | roman}}</li>
+        }
+      </ul>
+    </div>      
+  </div> -->
+
+<div class="border p-3 m-2">
+  <h2>Age in years</h2>
+  <input [(ngModel)] = "birthDate" type="date" 
+  class="form-control" placeholder="Enter your birth date"style="width: 200px" />
+  <div>Age in years : {{birthDate | age}}</div>
+</div>
+
+
+<div class="border p-3 mt-3">
+ <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Employee Id</th>
+      <th>Employee Name</th>
+      <th>Employee Salary</th>
+      <th>Employee Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(emp of employees; track emp.eId)
+    {
+      <tr>
+        <td>{{emp.eId}}</td>
+        <td>{{emp.gender | salutation}} {{emp.name}}</td>
+        <td>{{emp.sal}}</td>
+        <td>{{emp.gender}}</td>
+        </tr>
+    }
+  </tbody>
+ </table>
+</div>
+
+<div class="border p-3 mt-3">
+  <h2>Search Pipe</h2>
+  <input type="text" [(ngModel)] = "searchInput" class="form-control" placeholder="Search by name" style="width: 200px; margin: 1px;"  />
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Salary</th>
+        <th>Employee Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(emp of employees | search:searchInput; track emp.eId){
+      <tr>
+        <td>{{emp.eId}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.sal}}</td>
+        <td>{{emp.gender}}</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>
+  
