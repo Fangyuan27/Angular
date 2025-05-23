@@ -1,0 +1,24 @@
+
+<div class=" border-5 p-2 m-2">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Employee Salary</th>
+                <th>Employee Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (emp of employeeInfo; track emp.eId) {
+                <tr>
+                    <td>{{emp.eId}}</td>
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.sal}}</td>
+                    <td>{{emp.gender}}</td>
+                    <td><button class="btn btn-danger" (click) = "deleteEmp(emp.eId)">Delete</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

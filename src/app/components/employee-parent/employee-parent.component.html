@@ -1,0 +1,8 @@
+<div class="border border-5 p-2 m-2">
+    <app-employee-table-child [employeeInfo]="employees" 
+    (deleteEmpFromParent)="deleteEmployee($event)"> </app-employee-table-child>
+<!-- </div> -->
+
+<div class="p-2 m-2">
+    <app-employee-add-child (addEmpToParent)="addEmployee($event)"></app-employee-add-child>
+</div>

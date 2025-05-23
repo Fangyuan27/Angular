@@ -7,6 +7,7 @@ import { EmployeeCRUDComponent } from '../employee-crud/employee-crud.component'
 import { FooterComponent } from '../footer/footer.component';
 import { pipe } from 'rxjs';
 import { PipesComponent } from '../pipes/pipes.component';
+import { EmployeeParentComponent } from '../employee-parent/employee-parent.component';
 
 @Component({
   selector: 'app-body',
@@ -17,7 +18,8 @@ import { PipesComponent } from '../pipes/pipes.component';
     //ProductsComponent
     //EmployeeCRUDComponent,
     // FooterComponent
-    PipesComponent
+    //PipesComponent,
+    EmployeeParentComponent
 ],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css'
