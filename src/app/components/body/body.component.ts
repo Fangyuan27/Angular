@@ -8,6 +8,9 @@ import { FooterComponent } from '../footer/footer.component';
 import { pipe } from 'rxjs';
 import { PipesComponent } from '../pipes/pipes.component';
 import { EmployeeParentComponent } from '../employee-parent/employee-parent.component';
+import { EmployeeComponent } from "../employee/employee.component";
+import { HttpDemo1Component } from '../http-demo1/http-demo1.component';
+import { UsersHttpComponent } from "../users-http/users-http.component";
 
 @Component({
   selector: 'app-body',
@@ -19,7 +22,10 @@ import { EmployeeParentComponent } from '../employee-parent/employee-parent.comp
     //EmployeeCRUDComponent,
     // FooterComponent
     //PipesComponent,
-    EmployeeParentComponent
+    // EmployeeParentComponent,
+    // 
+    // HttpDemo1Component,
+    UsersHttpComponent
 ],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css'

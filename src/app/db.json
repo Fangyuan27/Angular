@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "department": "Insurance",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@gmail.com",
+      "department": "Marketing"
+    },
+    {
+      "id": "3",
+      "name": "Alice Johnson",
+      "email": "alice@gmail.com",
+      "department": "Sales"
+    },
+    {
+      "id": "4",
+      "name": "Bob Brown",
+      "email": "bob@gmail.com",
+      "department": "Human Resources"
+    },
+    {
+      "id": "5",
+      "name": "Charlie White",
+      "email": "charlie@gmail.com",
+      "department": "Finance"
+    },
+    {
+      "email": "sai@gmail.com",
+      "id": "6",
+      "name": "sai varshith",
+      "department": "developer"
+    },
+    {
+      "id": "7",
+      "name": "Venkat",
+      "email": "venkat@gmail.com",
+      "department": "Senior Developer"
+    }
+  ]
+}

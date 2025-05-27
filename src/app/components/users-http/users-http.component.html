@@ -1,0 +1,88 @@
+<div class="card p-3 mb-3">
+    <h2 style="text-align: center;">Employee List</h2>
+    @if (isLoading) {
+<div class="d-flex justify-content-center my-4">
+  <img
+    src="assets/loading-spinner.gif"
+    alt="Loading..."
+    style="width: 50px; height: 50px"
+    class="spinner-border"
+  />
+</div>
+    } @else {
+    <label>Employee ID:</label>
+    <input type="text" class="form-control"[(ngModel)]="newUser.id" style="width: 300px;"/>
+    <label>Employee Name:</label>
+    <input type="text" class="form-control"[(ngModel)]="newUser.name" style="width: 300px;"/>
+    <label>Employee Email:</label>
+    <input type="text" class="form-control"[(ngModel)]="newUser.email" style="width: 300px;"/>
+    <label>Employee Department:</label>
+    <input type="text" class="form-control"[(ngModel)]="newUser.department" style="width: 300px;"/>
+    <button class="btn btn-success" (click)="addUser(newUser)" style="width: fit-content; margin: 10px;">Add User </button>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Email</th>
+                <th>Employee Department</th>
+            </tr>
+        </thead>
+        <tbody>
+  @for (emp of employees; track emp.id) {
+    <tr>
+      <td>{{ emp.id }}</td>
+
+      <!-- Name -->
+      @if (editingUserId === emp.id && fieldToEdit === 'name') {
+        <td>
+          <input [(ngModel)]="editedValue" class="form-control d-inline" style="width:150px" />
+          <button class="btn btn-sm btn-success" (click)="EditUsers()"><fa-icon [icon]="faCheck"></fa-icon></button>
+          <button class="btn btn-sm btn-success" (click)="cancelEdit()"><fa-icon [icon]="faTimes"></fa-icon></button>
+          
+        </td>
+      } @else {
+        <td>
+          {{ emp.name }}
+          <button class="btn btn-sm btn-link" (click)="startEditing(emp.id, 'name', emp.name)"><fa-icon [icon]="faEdit"></fa-icon></button>
+        </td>
+      }
+
+      <!-- Email -->
+      @if (editingUserId === emp.id && fieldToEdit === 'email') {
+        <td>
+          <input [(ngModel)]="editedValue" class="form-control d-inline" style="width:200px" />
+          <button class="btn btn-sm btn-success" (click)="EditUsers()"><fa-icon [icon]="faCheck"></fa-icon></button>
+          <button class="btn btn-sm btn-success" (click)="cancelEdit()"><fa-icon [icon]="faTimes"></fa-icon></button>
+        </td>
+      } @else {
+        <td>
+          {{ emp.email }}
+          <button class="btn btn-sm btn-link" (click)="startEditing(emp.id, 'email', emp.email)"><fa-icon [icon]="faEdit"></fa-icon></button>
+        </td>
+      }
+
+      <!-- Department -->
+      @if (editingUserId === emp.id && fieldToEdit === 'department') {
+        <td>
+          <input [(ngModel)]="editedValue" class="form-control d-inline" style="width:150px" />
+          <button class="btn btn-sm btn-success" (click)="EditUsers()"><fa-icon [icon]="faCheck"></fa-icon></button>
+          <button class="btn btn-sm btn-success" (click)="cancelEdit()"><fa-icon [icon]="faTimes"></fa-icon></button>
+        </td>
+      } @else {
+        <td>
+          {{ emp.department }}
+          <button class="btn btn-sm btn-link" (click)="startEditing(emp.id, 'department', emp.department)"><fa-icon [icon]="faEdit"></fa-icon></button>
+        </td>
+      }
+
+      <td>
+        <button class="btn btn-danger" (click)="deleteUser(emp.id)"><fa-icon [icon]="faTrash"></fa-icon></button>
+      </td>
+    </tr>
+  }
+</tbody>
+    </table>
+}
+</div>
+
